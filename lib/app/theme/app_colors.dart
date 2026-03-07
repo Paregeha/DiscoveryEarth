@@ -9,8 +9,10 @@ abstract final class AppColors {
 
   static const Color backIconColor = Color(0xFFF3F4F6);
   static const Color lines = Color(0xFFE6E2D6);
+  static const Color backgroundSecond = Color(0xFFF9FAFB);
+  static const Color borderColor = Color(0xFFD1D5DB);
 
-  static const Color textSecondary = Color(0xFFC5A572);
+  static const Color textButton = Color(0xFFC5A572);
 
   static const Color lang = Color(0xFF1C1C1C);
 
