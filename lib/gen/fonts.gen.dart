@@ -11,6 +11,12 @@
 class FontFamily {
   FontFamily._();
 
-  /// Font family: Inter
-  static const String inter = 'Inter';
+  /// Font family: CormorantGaramond
+  static const String cormorantGaramond = 'CormorantGaramond';
+
+  /// Font family: Montserrat
+  static const String montserrat = 'Montserrat';
+
+  /// Font family: Pacifico
+  static const String pacifico = 'Pacifico';
 }
