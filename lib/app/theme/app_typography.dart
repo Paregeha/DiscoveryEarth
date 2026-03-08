@@ -107,4 +107,12 @@ abstract final class AppTypography {
     fontSize: 36.0,
     height: 40.0 / 36.0,
   );
+
+  static const TextStyle footerHeadText = TextStyle(
+    fontFamily: cormorantGaramond,
+    fontWeight: FontWeight.w500,
+    fontSize: 18.0,
+    height: 28.0 / 18.0,
+    letterSpacing: 0,
+  );
 }
