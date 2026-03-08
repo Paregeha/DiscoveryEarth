@@ -11,6 +11,7 @@ abstract final class AppColors {
   static const Color lines = Color(0xFFE6E2D6);
   static const Color backgroundSecond = Color(0xFFF9FAFB);
   static const Color borderColor = Color(0xFFD1D5DB);
+  static const Color borderTop = Color(0xFFE5E7EB);
 
   static const Color textButton = Color(0xFFC5A572);
 
