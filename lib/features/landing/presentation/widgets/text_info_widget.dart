@@ -1,7 +1,7 @@
 import 'package:discover_earth/app/theme/app_colors.dart';
 import 'package:discover_earth/app/theme/app_typography.dart';
 import 'package:discover_earth/gen/assets.gen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class TextInfoWidget extends StatelessWidget {
@@ -33,25 +33,27 @@ class TextInfoWidget extends StatelessWidget {
             fit: BoxFit.scaleDown,
           ),
         ),
-        SizedBox(width: 16.0),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: AppTypography.cardTitleText.copyWith(
-                color: AppColors.secondTitleColor,
+        const SizedBox(width: 16.0),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: AppTypography.cardTitleText.copyWith(
+                  color: AppColors.secondTitleColor,
+                ),
               ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              description,
-              style: AppTypography.cardDescriptionText.copyWith(
-                color: AppColors.secondColor,
+              const SizedBox(height: 10.0),
+              Text(
+                description,
+                style: AppTypography.cardDescriptionText.copyWith(
+                  color: AppColors.secondColor,
+                  height: 1.5,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );

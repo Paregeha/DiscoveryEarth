@@ -10,6 +10,7 @@ import '../sections/invite_only_eco_expeditions_section.dart';
 import '../sections/living_gallery_section.dart';
 import '../sections/main_section.dart';
 import '../sections/nature_patrons_club_section.dart';
+import '../widgets/navbar_widget.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -22,6 +23,7 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const NavbarDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
