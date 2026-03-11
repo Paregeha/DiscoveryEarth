@@ -40,7 +40,6 @@ class NavbarWidget extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  /// MOBILE / TABLET MENU BUTTON
                   if (!isDesktop)
                     Builder(
                       builder: (context) {
@@ -53,7 +52,6 @@ class NavbarWidget extends StatelessWidget {
                       },
                     ),
 
-                  /// DESKTOP LOGO
                   if (isDesktop)
                     Text(
                       'Eden Reverie',
@@ -62,7 +60,6 @@ class NavbarWidget extends StatelessWidget {
                       ),
                     ),
 
-                  /// MOBILE / TABLET LOGO
                   if (!isDesktop) ...[
                     const SizedBox(width: 12),
                     Text(
@@ -73,7 +70,6 @@ class NavbarWidget extends StatelessWidget {
                     ),
                   ],
 
-                  /// DESKTOP MENU
                   if (isDesktop) ...[
                     const SizedBox(width: 40),
                     const _NavbarMenu(),
@@ -81,7 +77,6 @@ class NavbarWidget extends StatelessWidget {
 
                   const Spacer(),
 
-                  /// ACTIONS
                   if (isDesktop)
                     const _NavbarActions()
                   else
@@ -200,6 +195,7 @@ class NavbarDrawer extends StatelessWidget {
     ];
 
     return Drawer(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       width: 320,
       child: SafeArea(
         child: Column(
