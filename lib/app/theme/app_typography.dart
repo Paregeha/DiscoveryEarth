@@ -46,6 +46,7 @@ abstract final class AppTypography {
   );
 
   static const TextStyle titleSection = TextStyle(
+    // name = l48cormorant зауважити це і врахувати
     fontFamily: cormorantGaramond,
     fontWeight: FontWeight.w300,
     fontSize: 48.0,

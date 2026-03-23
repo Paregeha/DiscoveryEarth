@@ -5,6 +5,7 @@ import 'package:discover_earth/features/landing/presentation/sections/join_our_c
 import 'package:discover_earth/features/landing/presentation/sections/the_reverie_journal_section.dart';
 import 'package:discover_earth/features/landing/presentation/sections/wild_luxury_retreats_section.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../sections/invite_only_eco_expeditions_section.dart';
 import '../sections/living_gallery_section.dart';
@@ -38,6 +39,22 @@ class _LandingPageState extends State<LandingPage> {
             JoinOurCommunity(),
             FooterSection(),
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton.large(
+        onPressed: () {},
+        child: Builder(
+          builder: (context) {
+            final responsive = ResponsiveBreakpoints.of(context);
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('w: ${MediaQuery.of(context).size.width}'),
+                Text('h: ${MediaQuery.of(context).size.height}'),
+                Text(responsive.breakpoint.end.toString()),
+              ],
+            );
+          },
         ),
       ),
     );
