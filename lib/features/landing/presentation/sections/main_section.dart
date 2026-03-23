@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class MainSection extends StatefulWidget {
-  const MainSection({super.key});
+  const MainSection({super.key, required this.onScrollToSection});
+
+  final void Function(String section) onScrollToSection;
 
   @override
   State<MainSection> createState() => _MainSectionState();
@@ -238,7 +240,12 @@ class _MainSectionState extends State<MainSection> {
               ),
             ),
           ),
-          const Positioned(top: 0, left: 0, right: 0, child: NavbarWidget()),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: NavbarWidget(onScrollToSection: widget.onScrollToSection),
+          ),
         ],
       ),
     );

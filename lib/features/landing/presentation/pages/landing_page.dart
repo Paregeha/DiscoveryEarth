@@ -21,23 +21,61 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
+  final galleryKey = GlobalKey();
+  final expeditionsKey = GlobalKey();
+  final patronsKey = GlobalKey();
+  final vaultKey = GlobalKey();
+  final journalKey = GlobalKey();
+
+  void scrollToSection(GlobalKey key) {
+    final sectionContext = key.currentContext;
+    if (sectionContext != null) {
+      Scrollable.ensureVisible(
+        sectionContext,
+        duration: const Duration(milliseconds: 600),
+        curve: Curves.easeInOut,
+        alignment: 0.02,
+      );
+    }
+  }
+
+  void handleSectionScroll(String section) {
+    if (section == 'Living Gallery') {
+      scrollToSection(galleryKey);
+    } else if (section == 'Expeditions') {
+      scrollToSection(expeditionsKey);
+    } else if (section == 'Nature Patrons') {
+      scrollToSection(patronsKey);
+    } else if (section == 'Art Vault') {
+      scrollToSection(vaultKey);
+    } else if (section == 'Journal') {
+      scrollToSection(journalKey);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const NavbarDrawer(),
+      drawer: NavbarDrawer(onScrollToSection: handleSectionScroll),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            MainSection(),
-            LivingGallerySection(),
-            InviteOnlyEcoExpeditionsSection(),
-            NaturePatronsClubSection(),
-            DigitalNatureArtValueSection(),
-            TheReverieJournal(),
-            WildLuxuryRetreatsSection(),
-            ConservationImpactSection(),
-            JoinOurCommunity(),
-            FooterSection(),
+            MainSection(onScrollToSection: handleSectionScroll),
+            Container(key: galleryKey, child: const LivingGallerySection()),
+            Container(
+              key: expeditionsKey,
+              child: const InviteOnlyEcoExpeditionsSection(),
+            ),
+            Container(key: patronsKey, child: const NaturePatronsClubSection()),
+            Container(
+              key: vaultKey,
+              child: const DigitalNatureArtValueSection(),
+            ),
+            Container(key: journalKey, child: const TheReverieJournal()),
+            const WildLuxuryRetreatsSection(),
+            const ConservationImpactSection(),
+            const JoinOurCommunity(),
+            const FooterSection(),
           ],
         ),
       ),

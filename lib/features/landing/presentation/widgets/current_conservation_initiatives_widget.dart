@@ -37,60 +37,69 @@ class CurrentConservationInitiativesWidget extends StatelessWidget {
           child: Center(child: SvgPicture.asset(Assets.icons.protection.path)),
         ),
         SizedBox(width: 16.0),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: AppTypography.cardTitleText2.copyWith(
-                color: AppColors.secondTitleColor,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: AppTypography.cardTitleText2.copyWith(
+                  color: AppColors.secondTitleColor,
+                ),
               ),
-            ),
-            const SizedBox(height: 9),
+              const SizedBox(height: 9),
 
-            Text(
-              description,
-              style: AppTypography.anyText.copyWith(
-                color: AppColors.secondColor,
-              ),
-            ),
-
-            const SizedBox(height: 12),
-
-            SizedBox(
-              width: 636.0,
-              child: LinearProgressIndicator(
-                value: total == 0 ? 0 : count / total,
-                minHeight: 8.0,
-                borderRadius: BorderRadius.circular(9999.0),
-                backgroundColor: AppColors.borderTop,
-                valueColor: AlwaysStoppedAnimation(AppColors.textButton),
-              ),
-            ),
-
-            const SizedBox(height: 8),
-
-            SizedBox(
-              width: 636.0,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    countText,
-                    style: AppTypography.anyText2.copyWith(
-                      color: AppColors.thirdColor,
+              Expanded(
+                child: SizedBox(
+                  width: 636,
+                  child: Text(
+                    description,
+                    style: AppTypography.anyText.copyWith(
+                      color: AppColors.secondColor,
                     ),
                   ),
-                  Text(
-                    totalText,
-                    style: AppTypography.anyText2.copyWith(
-                      color: AppColors.thirdColor,
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
-          ],
+
+              const SizedBox(height: 12),
+
+              SizedBox(
+                width: 636.0,
+                child: LinearProgressIndicator(
+                  value: total == 0 ? 0 : count / total,
+                  minHeight: 8.0,
+                  borderRadius: BorderRadius.circular(9999.0),
+                  backgroundColor: AppColors.borderTop,
+                  valueColor: AlwaysStoppedAnimation(AppColors.textButton),
+                ),
+              ),
+
+              const SizedBox(height: 8),
+
+              Expanded(
+                child: SizedBox(
+                  width: 636.0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        countText,
+                        style: AppTypography.anyText2.copyWith(
+                          color: AppColors.thirdColor,
+                        ),
+                      ),
+                      Text(
+                        totalText,
+                        style: AppTypography.anyText2.copyWith(
+                          color: AppColors.thirdColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class NavbarWidget extends StatelessWidget {
-  const NavbarWidget({super.key});
+  const NavbarWidget({super.key, required this.onScrollToSection});
+
+  final void Function(String section) onScrollToSection;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +53,6 @@ class NavbarWidget extends StatelessWidget {
                         );
                       },
                     ),
-
                   if (isDesktop)
                     Text(
                       'Eden Reverie',
@@ -59,7 +60,6 @@ class NavbarWidget extends StatelessWidget {
                         color: AppColors.mainColor,
                       ),
                     ),
-
                   if (!isDesktop) ...[
                     const SizedBox(width: 12),
                     Text(
@@ -69,14 +69,11 @@ class NavbarWidget extends StatelessWidget {
                       ),
                     ),
                   ],
-
                   if (isDesktop) ...[
                     const SizedBox(width: 40),
-                    const _NavbarMenu(),
+                    _NavbarMenu(onScrollToSection: onScrollToSection),
                   ],
-
                   const Spacer(),
-
                   if (isDesktop)
                     const _NavbarActions()
                   else
@@ -92,7 +89,9 @@ class NavbarWidget extends StatelessWidget {
 }
 
 class _NavbarMenu extends StatelessWidget {
-  const _NavbarMenu();
+  const _NavbarMenu({required this.onScrollToSection});
+
+  final void Function(String section) onScrollToSection;
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +109,7 @@ class _NavbarMenu extends StatelessWidget {
             (item) => Padding(
               padding: const EdgeInsets.only(right: 24.0),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () => onScrollToSection(item),
                 child: Text(
                   item,
                   style: AppTypography.navBarText.copyWith(
@@ -182,7 +181,9 @@ class _CompactNavbarActions extends StatelessWidget {
 }
 
 class NavbarDrawer extends StatelessWidget {
-  const NavbarDrawer({super.key});
+  const NavbarDrawer({super.key, required this.onScrollToSection});
+
+  final void Function(String section) onScrollToSection;
 
   @override
   Widget build(BuildContext context) {
@@ -195,7 +196,7 @@ class NavbarDrawer extends StatelessWidget {
     ];
 
     return Drawer(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       width: 320,
       child: SafeArea(
         child: Column(
@@ -224,6 +225,7 @@ class NavbarDrawer extends StatelessWidget {
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
+                      onScrollToSection(items[index]);
                     },
                   );
                 },
