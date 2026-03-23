@@ -89,7 +89,7 @@ class _LandingPageState extends State<LandingPage> {
               children: [
                 Text('w: ${MediaQuery.of(context).size.width}'),
                 Text('h: ${MediaQuery.of(context).size.height}'),
-                Text(responsive.breakpoint.end.toString()),
+                Text(responsive.breakpoint.name.toString()),
               ],
             );
           },
