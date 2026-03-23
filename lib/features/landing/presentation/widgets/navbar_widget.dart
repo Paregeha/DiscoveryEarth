@@ -195,6 +195,7 @@ class NavbarDrawer extends StatelessWidget {
     ];
 
     return Drawer(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       width: 320,
       child: SafeArea(
         child: Column(
